@@ -27,6 +27,23 @@
         <canvas id="timeChart"></canvas>
     </div>
 
+    <div class="card">
+        <h3> Manual Add hours</h3>
+        <input type="date" id="manualDate">
+        <input type="number" id="manualHours" placeholder="Hours">
+        <button onclick="addManualHours()"> Add </button>
+    </div>
+
+    <div class="card">
+        <h3>Daily Logs</h3>
+        <ul id="logs"></ul>
+    </div>
+
+    <div class="card">
+        <button onClick="toggleDarkMode()">🌙 Toggle Dark Mode </button>
+    </div>
+
     <script src="script.js"></script>
+
 </body>
 </html>
