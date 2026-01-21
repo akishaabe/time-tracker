@@ -4,46 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OJT Time Tracker</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js (REQUIRED) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <script defer src="script.js"></script>
 </head>
 <body>
-    <h1> OJT Time Tracker </h1>
+
+<div class="container">
+    <h1>OJT Time Tracker</h1>
 
     <div class="card">
-        <label> Required OJT Hours:</label>
+        <label>Required OJT Hours</label>
         <input type="number" id="requiredHours" placeholder="e.g. 400">
-        <button onclick="saveRequiredHours()"> Save </button>
+        <button onclick="saveRequiredHours()">Save</button>
     </div>
 
     <div class="card">
-        <p> Completed Hours: <span id="completed">0</span> </p>
-        <p> Remaining Hours: <span id="remaining">0</span> </p>
-        <button onclick="startDuty()">▶ Start Duty" </button>
-        <button onclick="endDuty()">■ End Duty" </button>
+        <h3 class="section-title">Time Summary</h3>
+        <p>Completed: <span id="completed">0</span> hrs</p>
+        <p>Remaining: <span id="remaining">0</span> hrs</p>
+
+        <button onclick="startDuty()">▶ Start Duty</button>
+        <button onclick="endDuty()">■ End Duty</button>
     </div>
 
     <div class="card">
-        <canvas id="timeChart"></canvas>
+        <h3 class="section-title">Progress</h3>
+        <div class="chart-wrapper">
+            <canvas id="ojtChart"></canvas>
+        </div>
     </div>
 
     <div class="card">
-        <h3> Manual Add hours</h3>
+        <h3 class="section-title">Manual Add Hours</h3>
         <input type="date" id="manualDate">
         <input type="number" id="manualHours" placeholder="Hours">
-        <button onclick="addManualHours()"> Add </button>
+        <button onclick="addManualHours()">Add</button>
     </div>
 
     <div class="card">
-        <h3>Daily Logs</h3>
+        <h3 class="section-title">Daily Logs</h3>
         <ul id="logs"></ul>
     </div>
 
     <div class="card">
-        <button onClick="toggleDarkMode()">🌙 Toggle Dark Mode </button>
+        <button onclick="exportCSV()">📄 Export CSV</button>
+        <button onclick="exportPDF()">🧾 Export PDF</button>
     </div>
 
-    <script src="script.js"></script>
+    <div class="card">
+        <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+    </div>
+</div>
 
 </body>
 </html>
